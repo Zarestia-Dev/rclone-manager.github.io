@@ -1,0 +1,23 @@
+<section class="features">
+  <div class="features-container">
+    <div class="section-header animate-fade-in-up">
+      <h2 class="section-title">Powerful Features</h2>
+      <p class="section-subtitle">Everything you need to manage your cloud storage efficiently</p>
+    </div>
+
+    <div class="features-grid">
+      @for (feature of features; track feature.title) {
+        <mat-card class="feature-card hover-lift animate-fade-in-up" 
+                  [style.animation-delay]="($index * 0.1) + 's'">
+          <mat-card-content>
+            <div class="feature-icon">
+              <mat-icon>{{ feature.icon }}</mat-icon>
+            </div>
+            <h3 class="feature-title">{{ feature.title }}</h3>
+            <p class="feature-description">{{ feature.description }}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  </div>
+</section>

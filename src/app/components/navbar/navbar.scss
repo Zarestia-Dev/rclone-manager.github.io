@@ -1,0 +1,136 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--app-background);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    background: rgba(var(--app-background-rgb), 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-bottom-color: var(--border-color);
+  }
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--app-text-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.logo-img {
+  height: 40px;
+  width: 40px;
+  transition: transform 0.3s ease;
+
+  .logo:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.logo-text {
+  @media (max-width: 500px) {
+    display: none;
+  }
+}
+
+.mobile-menu-btn {
+  display: none;
+  color: var(--app-text-color);
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 73px;
+    left: 0;
+    right: 0;
+    background: var(--app-background);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  a {
+    color: var(--app-text-color);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 80%;
+    }
+
+    &.active {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem 1rem;
+
+      &::after {
+        display: none;
+      }
+
+      &.active {
+        background: rgba(var(--primary-color-rgb), 0.1);
+        border-radius: var(--radius-xs);
+      }
+    }
+  }
+}
