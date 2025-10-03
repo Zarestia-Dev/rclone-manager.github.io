@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Import custom RClone Manager theme
+@use './custom-theme.scss';
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: system-ui, Inter, sans-serif;
+  background-color: var(--app-background);
+  color: var(--app-text-color);
+  overflow-x: hidden;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}

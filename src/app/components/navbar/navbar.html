@@ -1,0 +1,21 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar-container">
+    <a routerLink="/" class="logo">
+      <img src="rclone.svg" alt="RClone Manager Logo" class="logo-img">
+      <span class="logo-text">RClone Manager</span>
+    </a>
+
+    <button class="mobile-menu-btn" mat-icon-button (click)="toggleMobileMenu()">
+      <mat-icon>{{ isMobileMenuOpen ? 'close' : 'menu' }}</mat-icon>
+    </button>
+
+    <div class="nav-links" [class.open]="isMobileMenuOpen">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" 
+         mat-button (click)="closeMobileMenu()">Home</a>
+      <a routerLink="/docs" routerLinkActive="active" mat-button (click)="closeMobileMenu()">Docs</a>
+      <a routerLink="/downloads" routerLinkActive="active" mat-button (click)="closeMobileMenu()">Downloads</a>
+      <a routerLink="/faq" routerLinkActive="active" mat-button (click)="closeMobileMenu()">FAQ</a>
+      <a routerLink="/contact" routerLinkActive="active" mat-button (click)="closeMobileMenu()">Contact</a>
+    </div>
+  </div>
+</nav>
