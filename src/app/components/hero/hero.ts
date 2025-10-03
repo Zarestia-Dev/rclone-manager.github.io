@@ -16,5 +16,10 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './hero.scss'
 })
 export class Hero {
-
+  scrollToFeatures() {
+    const featuresSection = document.querySelector('app-features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

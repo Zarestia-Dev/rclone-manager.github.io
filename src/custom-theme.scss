@@ -623,7 +623,7 @@ body {
 body {
   margin: 0;
   font-family: system-ui, Inter, sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @include mat.button-overrides(
     (

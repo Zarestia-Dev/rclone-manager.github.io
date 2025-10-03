@@ -2,26 +2,26 @@
   background: var(--app-background);
   border-top: 1px solid var(--border-color);
   padding: 3rem 2rem 1.5rem;
-}
 
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 2rem;
-
-  @media (max-width: 960px) {
-    grid-template-columns: repeat(2, 1fr);
+  &-container {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  &-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 960px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
   }
 }
 

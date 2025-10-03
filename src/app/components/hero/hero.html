@@ -10,7 +10,7 @@
         A powerful, user-friendly desktop application for managing your cloud storage with RClone
       </p>
       <div class="hero-actions animate-fade-in-up animate-delay-3">
-        <button mat-raised-button class="primary cta-btn" routerLink="/downloads">
+        <button mat-raised-button class="primary" routerLink="/downloads">
           <mat-icon>download</mat-icon>
           Download Now
         </button>
@@ -18,6 +18,12 @@
           <mat-icon>description</mat-icon>
           View Documentation
         </button>
+      </div>
+      <div class="hero-scroll-indicator animate-fade-in-up animate-delay-4">
+        <button matIconButton (click)="scrollToFeatures()" class="scroll-btn">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <p class="scroll-text">See Features</p>
       </div>
     </div>
   </div>

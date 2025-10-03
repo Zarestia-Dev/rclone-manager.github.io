@@ -1,41 +1,454 @@
-.page-container {
-  min-height: calc(100vh - 73px);
-  padding: 6rem 2rem 4rem;
-  background: var(--app-background);
-}
-
+// Downloads specific styles
 .page-content {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 1200px; // Wider for downloads
 }
 
-.page-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  color: var(--app-text-color);
+.downloads-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
+// Loading and Error States
+.loading-section,
+.error-section {
+  margin-bottom: 4rem;
+
+  mat-card {
+    background: var(--secondary-background);
+    border: 1px solid var(--border-color);
+
+    mat-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem;
+      text-align: center;
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+        color: var(--app-text-color);
+      }
+
+      p {
+        color: var(--text-muted);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .error-icon {
+        font-size: 48px !important;
+        width: 48px !important;
+        height: 48px !important;
+        color: var(--warn-color);
+      }
+    }
   }
 }
 
-.page-subtitle {
-  font-size: 1.25rem;
-  color: var(--text-muted);
-  margin: 0 0 3rem 0;
+// Current Version Section
+.current-version {
+  margin-bottom: 4rem;
+
+  mat-card {
+    background: linear-gradient(135deg, 
+      rgba(var(--primary-color-rgb), 0.05),
+      rgba(var(--accent-color-rgb), 0.05));
+    border: 1px solid rgba(var(--primary-color-rgb), 0.2);
+
+    mat-card-content {
+      padding: 2rem;
+
+      .version-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+          gap: 1.5rem;
+          text-align: center;
+        }
+      }
+
+      .current-version-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem 0;
+        color: var(--app-text-color);
+
+        mat-icon {
+          color: var(--primary-color);
+        }
+      }
+
+      .version-date {
+        color: var(--text-muted);
+        margin: 0 0 1rem 0;
+        font-size: 0.95rem;
+      }
+
+      .version-highlights {
+        h4 {
+          font-size: 1rem;
+          font-weight: 600;
+          margin: 0 0 0.5rem 0;
+          color: var(--app-text-color);
+        }
+
+        ul {
+          margin: 0;
+          padding-left: 1.25rem;
+          
+          li {
+            color: var(--app-text-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.25rem;
+          }
+        }
+      }
+
+      button mat-icon {
+        margin-right: 0.5rem;
+      }
+    }
+  }
 }
 
-.placeholder-content {
-  background: var(--secondary-background);
-  border: 1px solid var(--border-color);
-  border-radius: var(--card-border-radius);
-  padding: 3rem;
-  text-align: center;
+      .release-stats {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        
+        .stat {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          color: var(--text-muted);
+          font-size: 0.85rem;
+          
+          mat-icon {
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+            color: var(--primary-color);
+          }
+        }
 
-  p {
+        @media (max-width: 480px) {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+
+// Platforms Section
+.platforms-section {
+  margin-bottom: 4rem;
+
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .platform-card {
+    background: var(--secondary-background);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+
+    mat-card-header {
+      padding-bottom: 1rem;
+
+      .platform-icon {
+        background: linear-gradient(135deg, 
+          rgba(var(--primary-color-rgb), 0.1),
+          rgba(var(--accent-color-rgb), 0.1));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        mat-icon {
+          color: var(--primary-color);
+          font-size: 24px;
+        }
+      }
+    }
+
+    mat-card-title {
+      color: var(--app-text-color);
+      font-weight: 600;
+    }
+
+    mat-card-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .download-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .download-option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-xs);
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: var(--bg-hover);
+          border-color: var(--primary-color);
+          transform: translateY(-1px);
+
+          .download-icon {
+            transform: translateY(-2px);
+          }
+        }
+
+        .download-info {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          .download-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin: 0;
+            color: var(--app-text-color);
+          }
+
+          .download-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+
+            .architecture {
+              font-weight: 500;
+            }
+          }
+        }
+
+        .download-icon {
+          color: var(--primary-color);
+          transition: transform 0.3s ease;
+        }
+      }
+    }
+  }
+}
+
+// Requirements Section
+.requirements-section {
+  margin-bottom: 4rem;
+
+  .requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    mat-card {
+      background: var(--secondary-background);
+      border: 1px solid var(--border-color);
+
+      mat-card-content {
+        padding: 1.5rem;
+
+        h3 {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin: 0 0 1rem 0;
+          color: var(--app-text-color);
+
+          mat-icon {
+            color: var(--primary-color);
+          }
+        }
+
+        ul {
+          margin: 0;
+          padding-left: 1.25rem;
+          
+          li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Changelog Section
+.changelog-section {
+  margin-bottom: 2rem;
+
+  .changelog-subtitle {
     color: var(--text-muted);
-    font-size: 1.125rem;
-    margin: 0;
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+  }
+
+  .changelog-accordion {
+    margin-bottom: 2rem;
+
+    .mat-expansion-panel {
+      background: var(--secondary-background);
+      border: 1px solid var(--border-color);
+      border-radius: var(--card-border-radius) !important;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .mat-expansion-panel-header {
+        padding: 1rem 1.5rem;
+      }
+
+      .version-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        .version-number {
+          font-weight: 600;
+          font-size: 1.1rem;
+          color: var(--app-text-color);
+        }
+
+        .latest-badge {
+          background: var(--primary-color);
+          color: white;
+          padding: 0.25rem 0.5rem;
+          border-radius: var(--radius-xs);
+          font-size: 0.75rem;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+
+      .changelog-content {
+        padding: 1rem 1.5rem 1.5rem;
+
+        .change-section {
+          margin-bottom: 1.5rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+            
+            mat-icon {
+              font-size: 18px;
+              width: 18px;
+              height: 18px;
+            }
+          }
+
+          ul {
+            margin: 0;
+            padding-left: 1.5rem;
+            
+            li {
+              color: var(--app-text-color);
+              line-height: 1.5;
+              margin-bottom: 0.5rem;
+              font-size: 0.9rem;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          &.warning {
+            background: rgba(var(--warn-color-rgb), 0.05);
+            border: 1px solid rgba(var(--warn-color-rgb), 0.2);
+            border-radius: var(--radius-xs);
+            padding: 1rem;
+            
+            h4 { color: var(--warn-color); }
+          }
+
+          &.added h4 { color: var(--primary-color); }
+          &.changed h4 { color: var(--accent-color); }
+          &.fixed h4 { color: #22c55e; }
+        }
+      }
+    }
+  }
+
+  .changelog-footer {
+    text-align: center;
+    padding-top: 1rem;
+
+    button mat-icon {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .page-container {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .downloads-header {
+    margin-bottom: 3rem;
+  }
+
+  .platforms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .requirements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .version-info {
+    text-align: center;
   }
 }
