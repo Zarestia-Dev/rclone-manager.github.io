@@ -30,7 +30,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/custom-theme.scss"
             ]
           },
           "configurations": {
@@ -96,7 +96,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/custom-theme.scss"
             ]
           }
         }

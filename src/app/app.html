@@ -1,7 +1,9 @@
-<div class="app-container light">
+<div class="app-container">
   <app-navbar></app-navbar>
   <main class="main-content">
     <router-outlet></router-outlet>
+    @if (loaded) {
+    <app-footer></app-footer>
+    }
   </main>
-  <app-footer></app-footer>
 </div>

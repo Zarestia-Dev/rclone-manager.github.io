@@ -57,7 +57,6 @@ src/
 │   └── app.ts           # Root component
 ├── animations.scss       # Animation utilities
 ├── custom-theme.scss     # Material theme from desktop app
-├── styles.scss          # Global styles
 └── index.html           # HTML template
 ```
 

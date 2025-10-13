@@ -1,0 +1,7 @@
+.mat-mdc-menu-item.active {
+  background-color: var(--button-hover);
+}
+
+.mat-mdc-menu-item.active mat-icon {
+  color: var(--primary-color);
+}
