@@ -617,12 +617,27 @@ $dark-theme: (
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   --mat-menu-container-shape: 16px;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
   font-family: system-ui, Inter, sans-serif;
+  background-color: var(--app-background);
+  color: var(--app-text-color);
   overflow-x: hidden;
 
   @include mat.button-overrides(
@@ -874,4 +889,60 @@ button {
   border-radius: var(--radius-xxs);
   transition: var(--transition-standard);
   will-change: background;
+}
+
+/* ===== COMMON PAGE LAYOUT STYLES ===== */
+
+.page-container {
+  min-height: calc(100vh - 73px);
+  padding: 6rem 2rem 4rem;
+  background: var(--app-background);
+}
+
+.page-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--app-text-color);
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+// Common section styles
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+  color: var(--app-text-color);
+
+  mat-icon {
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+// Common responsive utilities
+@media (max-width: 768px) {
+  .page-container {
+    padding: 4rem 1rem 2rem;
+  }
 }
