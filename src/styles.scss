@@ -1,0 +1,8 @@
+// Import custom RClone Manager theme
+@use './custom-theme.scss';
+
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
