@@ -1,7 +1,20 @@
 <div class="app-container">
   <app-navbar></app-navbar>
   <main class="main-content">
-    <router-outlet></router-outlet>
+    @switch (currentTab) {
+      @case ('general') {
+        <app-home></app-home>
+      }
+      @case ('docs') {
+        <app-docs></app-docs>
+      }
+      @case ('downloads') {
+        <app-downloads></app-downloads>
+      }
+      @case ('faq'){
+        <app-faq></app-faq>
+    }}
+
     @if (loaded) {
     <app-footer></app-footer>
     }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
@@ -37,7 +36,6 @@ interface HelpLink {
 @Component({
   selector: 'app-faq',
   imports: [
-    CommonModule,
     MatExpansionModule,
     MatIconModule,
     MatButtonModule,
@@ -76,7 +74,7 @@ export class Faq implements OnInit {
       
       // Fetch FAQ data from GitHub Wiki
       const response = await firstValueFrom(
-        this.http.get('https://raw.githubusercontent.com/wiki/RClone-Manager/rclone-manager/FAQ.md', {
+        this.http.get('https://raw.githubusercontent.com/wiki/Zarestia-Dev/rclone-manager/FAQ.md', {
           responseType: 'text'
         })
       );
@@ -248,14 +246,14 @@ export class Faq implements OnInit {
       {
         title: 'GitHub Discussions',
         description: 'Ask questions, share ideas, and get help from the community',
-        url: 'https://github.com/RClone-Manager/rclone-manager/discussions',
+        url: 'https://github.com/Zarestia-Dev/rclone-manager/discussions',
         icon: 'forum',
         type: 'primary'
       },
       {
         title: 'Report an Issue',
         description: 'Found a bug or problem? Report it on our GitHub issues',
-        url: 'https://github.com/RClone-Manager/rclone-manager/issues/new',
+        url: 'https://github.com/Zarestia-Dev/rclone-manager/issues/new',
         icon: 'bug_report',
         type: 'warn'
       },
@@ -269,7 +267,7 @@ export class Faq implements OnInit {
       {
         title: 'Feature Request',
         description: 'Suggest new features or improvements', 
-        url: 'https://github.com/RClone-Manager/rclone-manager/discussions/categories/ideas',
+        url: 'https://github.com/Zarestia-Dev/rclone-manager/discussions/categories/ideas',
         icon: 'lightbulb',
         type: 'accent'
       }

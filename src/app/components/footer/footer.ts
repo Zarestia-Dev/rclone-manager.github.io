@@ -1,14 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { TabService } from '../../services/tab.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-footer',
   imports: [
-    CommonModule,
-    RouterModule,
     MatIconModule,
     MatButtonModule
   ],
@@ -16,5 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './footer.scss'
 })
 export class Footer {
+  tabService = inject(TabService);
   currentYear = new Date().getFullYear();
+
+  setTab(tab: string) {
+    (this.tabService as any).setTab(tab);
+  }
 }
