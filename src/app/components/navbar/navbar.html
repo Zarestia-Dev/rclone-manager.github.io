@@ -1,6 +1,6 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
   <div class="navbar-container">
-    <a routerLink="/" class="logo">
+    <a class="logo" (click)="setTab('general')">
       <img src="rclone.svg" alt="RClone Manager Logo" class="logo-img">
       <span class="logo-text">RClone Manager</span>
     </a>
@@ -10,11 +10,10 @@
     </button>
 
     <div class="nav-links" [class.open]="isMobileMenuOpen">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" 
-         mat-button (click)="closeMobileMenu()">Home</a>
-      <a routerLink="/docs" routerLinkActive="active" mat-button (click)="closeMobileMenu()">Docs</a>
-      <a routerLink="/downloads" routerLinkActive="active" mat-button (click)="closeMobileMenu()">Downloads</a>
-      <a routerLink="/faq" routerLinkActive="active" mat-button (click)="closeMobileMenu()">FAQ</a>
+      <button mat-button [class.active]="currentTab === 'general'" (click)="setTab('general'); closeMobileMenu()">Home</button>
+      <button mat-button [class.active]="currentTab === 'docs'" (click)="setTab('docs'); closeMobileMenu()">Docs</button>
+      <button mat-button [class.active]="currentTab === 'downloads'" (click)="setTab('downloads'); closeMobileMenu()">Downloads</button>
+      <button mat-button [class.active]="currentTab === 'faq'" (click)="setTab('faq'); closeMobileMenu()">FAQ</button>
       <app-theme-toggle></app-theme-toggle>
     </div>
   </div>
