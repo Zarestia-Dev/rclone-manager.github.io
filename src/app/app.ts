@@ -1,35 +1,37 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { Navbar } from './components/navbar/navbar';
 import { Footer } from './components/footer/footer';
-import { Home } from './pages/home/home';
-import { Downloads } from './pages/downloads/downloads';
-import { Docs } from './pages/docs/docs';
-import { Faq } from './pages/faq/faq';
-import { TabService, AppTab } from './services/tab.service';
-import { Subscription } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, Footer, Home, Downloads, Docs, Faq],
+  imports: [RouterOutlet, Navbar, Footer],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App implements OnInit, OnDestroy {
   title = 'RClone Manager';
-  loaded = true;
-  currentTab: AppTab = 'general';
-  private sub?: Subscription;
+  loaded = false;
+  private destroy$ = new Subject<void>();
 
-  constructor(private tabService: TabService) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    // subscribe to tab changes
-    this.sub = this.tabService.currentTab$.subscribe(t => {
-      this.currentTab = t;
-    });
+    // Show footer only after initial navigation is complete to prevent flash
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.loaded = true;
+      });
   }
 
   ngOnDestroy() {
-    this.sub?.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

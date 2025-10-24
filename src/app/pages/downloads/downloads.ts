@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -54,6 +55,7 @@ interface GitHubAsset {
 @Component({
   selector: 'app-downloads',
   imports: [
+    CommonModule,
     MatExpansionModule,
     MatIconModule,
     MatButtonModule,
@@ -71,8 +73,8 @@ export class Downloads implements OnInit {
   error: string | null = null;
   latestRelease: GitHubRelease | null = null;
 
-  private readonly GITHUB_API_BASE = 'https://api.github.com/repos/Zarestia-Dev/rclone-manager';
-  private readonly CHANGELOG_URL = 'https://raw.githubusercontent.com/Zarestia-Dev/rclone-manager/master/CHANGELOG.md';
+  private readonly GITHUB_API_BASE = 'https://api.github.com/repos/RClone-Manager/rclone-manager';
+  private readonly CHANGELOG_URL = 'https://raw.githubusercontent.com/RClone-Manager/rclone-manager/master/CHANGELOG.md';
 
   constructor(private http: HttpClient) {}
 
@@ -354,7 +356,7 @@ export class Downloads implements OnInit {
             name: 'Download for Windows',
             architecture: 'All',
             size: 'Various',
-            url: 'https://github.com/Zarestia-Dev/rclone-manager/releases/latest'
+            url: 'https://github.com/RClone-Manager/rclone-manager/releases/latest'
           }
         ]
       },
@@ -367,7 +369,7 @@ export class Downloads implements OnInit {
             name: 'Download for macOS',
             architecture: 'All',
             size: 'Various',
-            url: 'https://github.com/Zarestia-Dev/rclone-manager/releases/latest'
+            url: 'https://github.com/RClone-Manager/rclone-manager/releases/latest'
           }
         ]
       },
@@ -380,7 +382,7 @@ export class Downloads implements OnInit {
             name: 'Download for Linux',
             architecture: 'All',
             size: 'Various',
-            url: 'https://github.com/Zarestia-Dev/rclone-manager/releases/latest'
+            url: 'https://github.com/RClone-Manager/rclone-manager/releases/latest'
           }
         ]
       }
@@ -409,7 +411,7 @@ export class Downloads implements OnInit {
       assets: [],
       body: 'Please visit GitHub for release notes',
       prerelease: false,
-      html_url: 'https://github.com/Zarestia-Dev/rclone-manager/releases/latest'
+      html_url: 'https://github.com/RClone-Manager/rclone-manager/releases/latest'
     };
   }
 
