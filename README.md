@@ -6,7 +6,7 @@ Built with Angular 20 and Angular Material, featuring the same custom Adwaita th
 
 ## 🚀 Live Site
 
-Visit: [https://rclone-manager.github.io](https://rclone-manager.github.io)
+Visit: [https://zarestia-dev.github.io/rclone-manager-io/](https://zarestia-dev.github.io/rclone-manager-io/)
 
 ## 📦 Features
 
