@@ -6,7 +6,7 @@ Built with Angular 20 and Angular Material, featuring the same custom Adwaita th
 
 ## 🚀 Live Site
 
-Visit: [https://zarestia-dev.github.io/rclone-manager-io/](https://zarestia-dev.github.io/rclone-manager-io/)
+Visit: [https://zarestia-dev.github.io/rclone-manager/](https://zarestia-dev.github.io/rclone-manager/)
 
 ## 📦 Features
 
@@ -45,6 +45,12 @@ npm run build
 ```
 
 Build artifacts will be stored in the `dist/` directory.
+
+### Publish to GitHub Pages
+
+```bash
+    ng deploy --repo=https://github.com/Zarestia-Dev/rclone-manager.git
+```
 
 ## 📁 Project Structure
 
