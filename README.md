@@ -49,7 +49,7 @@ Build artifacts will be stored in the `dist/` directory.
 ### Publish to GitHub Pages
 
 ```bash
-    ng deploy --repo=https://github.com/Zarestia-Dev/rclone-manager.git
+ng deploy --repo=https://github.com/Zarestia-Dev/rclone-manager.git
 ```
 
 ## 📁 Project Structure
